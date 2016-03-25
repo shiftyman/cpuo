@@ -12,7 +12,7 @@ import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
 
-public class Client {
+public class SrcClient {
     
 //    private CountDownLatch latch = new CountDownLatch(1);
     private Object connectSemphore = new Object();
@@ -20,7 +20,7 @@ public class Client {
     private String zkHostport = "172.19.31.33:2183,172.19.31.33:2182,172.19.31.33:2181/test";
     private ZooKeeper zk = null;
 
-    public Client() throws IOException, InterruptedException{
+    public SrcClient() throws IOException, InterruptedException{
         zk = new ZooKeeper(zkHostport, 5000, new Watcher(){
 
             public void process(WatchedEvent event) {
@@ -95,6 +95,6 @@ public class Client {
     }
     
     public static void main(String[] args) throws IOException, InterruptedException{
-        new Client();
+        new SrcClient();
     }
 }
